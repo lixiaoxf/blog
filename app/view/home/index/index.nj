@@ -1,1 +1,4 @@
-<div>1111</div>
+<div class='bk'>1111</div>
+<div class='h'></div>
+<script src='/js/common/vendors.chunk.js'></script>
+<script src='/js/home/index/index.js'></script>

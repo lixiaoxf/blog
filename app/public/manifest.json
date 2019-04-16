@@ -1,4 +1,4 @@
 {
-  "home/index/index.js": "home/index/index.js",
-  "../view/home/index/view/../index.nj": "../view/home/index/view/../index.nj"
+  "common/vendors.js": "js/common/vendors.chunk.js",
+  "home/index/index.js": "js/home/index/index.js"
 }

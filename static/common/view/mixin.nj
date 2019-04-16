@@ -1,0 +1,15 @@
+{% macro script(list) %}
+    {% for item in list %}
+        {%if staticMap(item)%}
+            <script src='{{siteconfig.cdn+staticMap(item) }}' type='text/javascript'></script>
+        {%endif%}
+    {% endfor %}
+{% endmacro %}
+
+{% macro style(list) %}
+    {% for item in list %}
+        {%if staticMap(item)%}
+            <link rel="stylesheet" type="text/css" href="{{siteconfig.cdn+staticMap(item) }}" />
+        {%endif%}    
+    {% endfor %}
+{% endmacro %}

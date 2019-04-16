@@ -19,14 +19,13 @@ function getentry(){
     });
     return map;
 }
-console.log(getentry())
 module.exports = {
     entry: getentry(),
     context: staticPath,
     output: {
-        filename: '[name].js',
+        filename: 'js/[name].js',
         path: publicPath,
-        chunkFilename: '[name].chunk.js'
+        chunkFilename: 'js/[name].chunk.js'
     },
     optimization: {
         splitChunks: {
@@ -57,7 +56,7 @@ module.exports = {
     resolve:{
         alias:{
             '@':staticPath,
-            'rem':path.resolve(staticPath, 'common/js/flexible/rem.js'),
+            // 'rem':path.resolve(staticPath, 'common/js/flexible/rem.js'),
         },
         extensions:[
             '.js',
@@ -106,7 +105,7 @@ module.exports = {
                     {// base64图片
                         loader:'url-loader',
                         options:{
-                            name:'[path][name][hash:5].min.[ext]',
+                            name:'res/[path][name][hash:5].min.[ext]',
                             publicPath:'/',
                             limit: 1000
                         }
@@ -133,7 +132,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['app/public'])  ,
         new ExtractTextPlugin({
-            filename:'[name].css'
+            filename:'css/[name].css'
         }),
         new ManifestPlugin(),
         // new HtmlWebpackPlugin({
