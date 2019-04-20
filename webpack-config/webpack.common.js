@@ -29,7 +29,7 @@ module.exports = {
     },
     optimization: {
         splitChunks: {
-          chunks: 'all', // 异步加载chunk
+          chunks: 'all',
           minSize: 30000,
           maxSize: 0,
           minChunks: 1,
@@ -135,30 +135,6 @@ module.exports = {
             filename:'css/[name].css'
         }),
         new ManifestPlugin(),
-        // new HtmlWebpackPlugin({
-        //     filename:'../view/home/index.html',
-        //     hash: true,
-        //     chunks:['manifest','common/labar','home/index'],
-        //     template: path.join(__dirname,'../static/home/view/index.html')
-        // }),
-        // new HtmlWebpackPlugin({
-        //     filename:'../view/some/one/index.html',
-        //     hash: true,
-        //     chunks:['manifest','common/labar','some/one/index'],
-        //     template: path.join(__dirname,'../static/some/one/view/index.html')
-        // }),
-        // new HtmlWebpackPlugin({
-        //     filename:'../view/some/two/index.html',
-        //     hash: true,
-        //     chunks:['manifest','common/labar','some/two/index'],
-        //     template: path.join(__dirname,'../static/some/two/view/index.html')
-        // }),
-        // new InjectManifest({
-        //     swSrc: path.resolve(staticPath, 'serviceWorker/sw.js'),
-        // // }),
-        // new WorkboxPlugin.InjectManifest({
-        //     swSrc: path.resolve(staticPath, 'serviceWorker/sw.js')
-        // }),
         new CopyWebpackPlugin([
             {
                 from: {

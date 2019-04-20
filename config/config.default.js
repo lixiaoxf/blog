@@ -47,6 +47,12 @@ module.exports = appInfo => {
       hostname: '127.0.0.1',
     }
   };
+
+  config.mongoose = {
+    enable: true,
+    package: 'egg-mongoose',
+  };
+
   config.siteconfig = {
     cdn:'/'
   }

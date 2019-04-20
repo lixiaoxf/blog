@@ -1,4 +1,23 @@
-<div class='bk'>1111</div>
-<div class='h'></div>
-<script src='/js/common/vendors.chunk.js'></script>
-<script src='/js/home/index/index.js'></script>
+{% extends "../../common/base.nj" %}
+
+{% block head %}
+    {{style([
+        'home/index/index.css'
+    ])}}
+{% endblock %}
+
+{% block body %}
+
+    <div class="bk">
+        1111
+    </div>
+    <div class="h"></div>
+
+{% endblock %}
+
+{% block javascript %}
+    {{script([
+        'home/index/index.js'
+    ])}}
+{% endblock %}
+

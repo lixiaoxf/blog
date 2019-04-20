@@ -1,4 +1,4 @@
-{# {% from './mixin.nj' import script,style %} #}
+{% from './mixin.nj' import script,style %}
 
 <!DOCTYPE html>
 <html>
