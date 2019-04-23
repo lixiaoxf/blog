@@ -49,8 +49,16 @@ module.exports = appInfo => {
   };
 
   config.mongoose = {
-    enable: true,
-    package: 'egg-mongoose',
+    clients: {
+      test: {
+        url: 'mongodb://127.0.0.1/test',
+        options: {
+          server: {
+            poolSize: 40,
+          },
+        },
+      },
+    }
   };
 
   config.siteconfig = {

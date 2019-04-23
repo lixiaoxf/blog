@@ -8,3 +8,7 @@ exports.loadManifest = {
   enable: true,
   path: path.join(__dirname, '../lib/plugin/app-load-manifest'),
 };
+exports.mongoose = {
+  enable: true,
+  package: 'egg-mongoose',
+};
