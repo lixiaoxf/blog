@@ -50,8 +50,8 @@ module.exports = appInfo => {
 
   config.mongoose = {
     clients: {
-      test: {
-        url: 'mongodb://127.0.0.1/test',
+      db1: {
+        url: 'mongodb://127.0.0.1/db1',
         options: {
           server: {
             poolSize: 40,

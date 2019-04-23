@@ -1,7 +1,7 @@
 module.exports = app => {
     const mongoose = app.mongoose;
     const Schema = mongoose.Schema;
-    const conn = app.mongooseDB.get('test'); 
+    const conn = app.mongooseDB.get('db1');
     const UserSchema = new Schema({
         columnId: {
             type: Schema.Types.ObjectId,
@@ -13,5 +13,5 @@ module.exports = app => {
             type:'string'
         }
     });
-    return conn.model('user', UserSchema);
+    return conn.model('los', UserSchema);
   };
