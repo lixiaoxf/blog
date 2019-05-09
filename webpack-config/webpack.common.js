@@ -19,12 +19,23 @@ function getentry(){
     });
     return map;
 }
+let m = require('./mod.js')
 module.exports = {
     entry: getentry(),
     context: staticPath,
     output: {
-        filename: 'js/[name].js',
+        filename: 'js/[name].[chunkhash].js',
         path: publicPath,
+        hashFunction:function(){
+            return {
+                update:function(){
+                    return m.getV();
+                },
+                digest:function(){
+                    return m.getV();
+                }
+            };
+        },
         chunkFilename: 'js/[name].chunk.js'
     },
     optimization: {
@@ -130,7 +141,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['app/public'])  ,
+        new CleanWebpackPlugin(['app/public'],{
+            root: path.resolve(__dirname, '../'), //根目录
+            
+            verbose: true, 
+            dry: false,
+        }),
         new ExtractTextPlugin({
             filename:'css/[name].css'
         }),

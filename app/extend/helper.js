@@ -1,5 +1,8 @@
+
 module.exports = {
-    initStaticView(){
-        console.log(22)
+    staticMap(){
+        console.log(process.env.WEB_V)
+        let m = require(`${process.cwd()}/webpack-config/mod.js`)
+        console.log(m.getVStr())
     }
 }

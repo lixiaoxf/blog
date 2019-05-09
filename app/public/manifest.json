@@ -1,8 +1,5 @@
 {
   "common/vendors.js": "js/common/vendors.chunk.js",
-  "home/index/index.js": "js/home/index/index.js",
-  "home/index/index.css": "css/home/index/index.css",
-  "../view/common/view/../base.nj": "../view/common/view/../base.nj",
-  "../view/common/view/../mixin.nj": "../view/common/view/../mixin.nj",
-  "../view/home/index/view/../index.nj": "../view/home/index/view/../index.nj"
+  "home/index/index.js": "js/home/index/index.20190509108.js",
+  "home/index/index.css": "css/home/index/index.css"
 }
