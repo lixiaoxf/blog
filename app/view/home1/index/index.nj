@@ -16,9 +16,9 @@
     </head>
     <body>
     <div class="bk">
-        lixiao{{num}}
+        22222{{name}}fsdsfsdfsdf
     </div>
-    <div class="h">111</div>
+    <div class="h"></div>
 
     {{script([
         'home/index/index.js'

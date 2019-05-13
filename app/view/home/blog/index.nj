@@ -1,4 +1,3 @@
-{% from './mixin.nj' import script,style %}
 
 <!DOCTYPE html>
 <html>
@@ -11,10 +10,18 @@
             'common/default.js',
             'common/vendors.js'
         ])}}
-        {% block head %}{% endblock %}
+    {{style([
+        'home/index/index.css'
+    ])}}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascript %}{% endblock %}
+    <div class="bk">
+        22222{{name}}fsdsfsdfsdf
+    </div>
+    <div class="h"></div>
+
+    {{script([
+        'home/index/index.js'
+    ])}}
     </body>
 </html>

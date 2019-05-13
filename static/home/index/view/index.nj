@@ -1,4 +1,4 @@
-{% extends "../../common/base.nj" %}
+{% extends "../../../common/view/base.nj" %}
 
 {% block head %}
     {{style([
@@ -7,11 +7,10 @@
 {% endblock %}
 
 {% block body %}
-    {{helper.staticMap()}}
     <div class="bk">
-        1111
+        lixiao{{num}}
     </div>
-    <div class="h"></div>
+    <div class="h">111</div>
 
 {% endblock %}
 

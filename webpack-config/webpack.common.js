@@ -1,9 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ManifestPlugin =  require('webpack-manifest-plugin');
+const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
 
 const basePath = path.resolve(__dirname, "../");
 const publicPath = path.resolve(basePath,'app/public/')
@@ -19,24 +17,39 @@ function getentry(){
     });
     return map;
 }
-let m = require('./mod.js')
+function getPages(){
+    let files = glob.sync('static/**/!(js)/index.js');
+    let arr = [];
+    files.forEach(item => {
+        let dirpath = /static\/(.*)\/index.js$/g.exec(item)[1]
+        arr.push({
+            from: path.resolve(staticPath,`${dirpath}/view/index.nj`),
+            to: path.resolve(basePath, `app/view/${dirpath}/index.nj`),
+        })
+    });
+    return arr;
+}
+function getVertion(){
+    var now = new Date()
+    return ''+now.getFullYear()+now.getMonth()+now.getDate()+now.getHours()+now.getMinutes()
+}
 module.exports = {
     entry: getentry(),
     context: staticPath,
     output: {
-        filename: 'js/[name].[chunkhash].js',
+        filename: 'js/[name].[hash].js',
         path: publicPath,
+        chunkFilename: 'js/[name].chunk.js',
         hashFunction:function(){
             return {
                 update:function(){
-                    return m.getV();
+                    return '2222';
                 },
                 digest:function(){
-                    return m.getV();
+                    return '11111'
                 }
-            };
-        },
-        chunkFilename: 'js/[name].chunk.js'
+            }
+        }
     },
     optimization: {
         splitChunks: {
@@ -150,15 +163,31 @@ module.exports = {
         new ExtractTextPlugin({
             filename:'css/[name].css'
         }),
-        new ManifestPlugin(),
-        new CopyWebpackPlugin([
-            {
-                from: {
-                    glob:'**/*/view/**',
-                    dot: true
+        // new ManifestPlugin(),
+        new NunjucksWebpackPlugin({
+            templates: getPages(),
+            configure:{
+                options:{
+                    autoescape:false,
+                    trimBlocks:true,
+                    lstripBlocks:true, 
+                    tags:{
+                        variableStart: '<$',
+                        variableEnd: '$>',
+                        commentStart: '<#',
+                        commentEnd: '#>'
+                    } 
                 },
-                to: '../view/[path]/../[name].[ext]'
             }
-        ]),
+          })
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: {
+        //             glob:'**/*/view/**',
+        //             dot: true
+        //         },
+        //         to: '../view/[path]/../[name].[ext]'
+        //     }
+        // ]),
     ]
 }
