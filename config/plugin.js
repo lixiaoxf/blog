@@ -4,10 +4,7 @@ exports.nunjucks = {
   enable: true,
   package: 'egg-view-nunjucks',
 };
-exports.loadManifest = {
-  enable: true,
-  path: path.join(__dirname, '../lib/plugin/app-load-manifest'),
-};
+
 // exports.mongoose = {
 //   enable: true,
 //   package: 'egg-mongoose',

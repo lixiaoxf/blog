@@ -24,29 +24,29 @@ function getPages(){
         let dirpath = /static\/(.*)\/index.js$/g.exec(item)[1]
         arr.push({
             from: path.resolve(staticPath,`${dirpath}/view/index.nj`),
-            to: path.resolve(basePath, `app/view/${dirpath}/index.nj`),
+            to: path.resolve(basePath, `app/view/${dirpath}/index.nj`)
         })
     });
     return arr;
 }
 function getVertion(){
     var now = new Date()
-    return ''+now.getFullYear()+now.getMonth()+now.getDate()+now.getHours()+now.getMinutes()
+    return ''+now.getFullYear()+(now.getMonth()+1)+now.getDate()+now.getHours()+now.getMinutes()
 }
 module.exports = {
     entry: getentry(),
     context: staticPath,
     output: {
-        filename: 'js/[name].[hash].js',
+        filename: '[name].js?v=[hash]',
         path: publicPath,
-        chunkFilename: 'js/[name].chunk.js',
+        chunkFilename: '[name].js?v=[hash]',
         hashFunction:function(){
             return {
-                update:function(){
-                    return '2222';
+                update(){
+                   
                 },
-                digest:function(){
-                    return '11111'
+                digest(){
+                    return getVertion();
                 }
             }
         }
@@ -90,7 +90,7 @@ module.exports = {
     module:{
         rules:[
             {
-                test: /\.html$/,
+                test: /\.nj$/,
                 use: {
                     loader: 'html-loader',
                     options: {
@@ -161,7 +161,7 @@ module.exports = {
             dry: false,
         }),
         new ExtractTextPlugin({
-            filename:'css/[name].css'
+            filename:'[name].css'
         }),
         // new ManifestPlugin(),
         new NunjucksWebpackPlugin({
@@ -180,14 +180,5 @@ module.exports = {
                 },
             }
           })
-        // new CopyWebpackPlugin([
-        //     {
-        //         from: {
-        //             glob:'**/*/view/**',
-        //             dot: true
-        //         },
-        //         to: '../view/[path]/../[name].[ext]'
-        //     }
-        // ]),
     ]
 }

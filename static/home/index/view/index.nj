@@ -1,22 +1,22 @@
 {% extends "../../../common/view/base.nj" %}
 
 {% block head %}
-    {{style([
+    <$ style([
         'home/index/index.css'
-    ])}}
+    ]) $>
 {% endblock %}
 
 {% block body %}
     <div class="bk">
-        lixiao{{num}}
+        lixiao111{{num}}
     </div>
     <div class="h">111</div>
 
 {% endblock %}
 
 {% block javascript %}
-    {{script([
+    <$ script([
         'home/index/index.js'
-    ])}}
+    ]) $>
 {% endblock %}
 

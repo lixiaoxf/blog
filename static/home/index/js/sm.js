@@ -1,5 +1,5 @@
 export default {
     init(){
-        return 'afffbbb'
+        return '3333'
     }
 }

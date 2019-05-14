@@ -1,27 +1,25 @@
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="uft-8"/>
-        {{style([
-            'common/index.css'
-        ])}}
-        {{script([
-            'common/default.js',
-            'common/vendors.js'
-        ])}}
-    {{style([
-        'home/index/index.css'
-    ])}}
-    </head>
-    <body>
+
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="uft-8"/>
+                    <link rel="stylesheet" type="text/css" href='common/index.css?v=20195141450' />
+
+                    <script src='common/vendors.chunk.js?v=20195141450' type='text/javascript'></script>
+
+            <link rel="stylesheet" type="text/css" href='home/index/index.css?v=20195141450' />
+
+        </head>
+        <body>
+            20195141450
     <div class="bk">
-        lixiao{{num}}
+        lixiao111{{num}}
     </div>
     <div class="h">111</div>
 
-    {{script([
-        'home/index/index.js'
-    ])}}
-    </body>
-</html>
+            <script src='home/index/index.js?v=20195141450' type='text/javascript'></script>
+
+        </body>
+    </html>
