@@ -2,8 +2,6 @@
 <html>
     <head>
         <meta charset="uft-8"/>
-        <% include /common/view/base.nj %>
-        
     </head>
     <body>
         <div class="bk">

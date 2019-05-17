@@ -1,7 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const basePath = path.resolve(__dirname, "../");
 const publicPath = path.resolve(basePath,'app/public/')
@@ -17,6 +16,8 @@ function getentry(){
     });
     return map;
 }
+
+
 function getPages(){
     let files = glob.sync('static/**/!(js)/index.js');
     let arr = [];
@@ -25,7 +26,13 @@ function getPages(){
         arr.push(
             new HtmlWebpackPlugin({
                 template:path.resolve(staticPath,`${dirpath}/view/index.nj`),
-                filename:path.resolve(basePath, `app/view/${dirpath}/index.nj`)
+                filename:path.resolve(basePath, `app/view/${dirpath}/index.nj`),
+                chunks:[
+                    'common/index',
+                    "common/default",
+                    "common/vendors",
+                    path.join(dirpath,'index')
+                ]
             })
         )
     });
@@ -80,12 +87,12 @@ module.exports = {
     module:{
         rules:[
             {
-                test: /\.nj$/,
+                test: /\.html$/,
                 use: {
                     loader: 'html-loader',
                     options: {
                         attrs: ['img:src', 'img:data-src', 'audio:src'],
-                        minimize: true
+                        // minimize: true
                     }
                 }
             },
@@ -154,22 +161,6 @@ module.exports = {
         }),
         
         ...getPages()
-        // new ManifestPlugin(),
-        // new NunjucksWebpackPlugin({
-        //     templates: getPages(),
-        //     configure:{
-        //         options:{
-        //             autoescape:false,
-        //             trimBlocks:true,
-        //             lstripBlocks:true, 
-        //             tags:{
-        //                 variableStart: '<$',
-        //                 variableEnd: '$>',
-        //                 commentStart: '<#',
-        //                 commentEnd: '#>'
-        //             } 
-        //         },
-        //     }
-        //   })
+        
     ]
 }
