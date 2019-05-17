@@ -1,0 +1,22 @@
+{% extends "../../../common/view/base.nj" %}
+
+{% block head %}
+    <$ style([
+        'home/index/index.css'
+    ]) $>
+{% endblock %}
+
+{% block body %}
+    <div class="bk">
+        lixiao111{{num}}
+    </div>
+    <div class="h">111</div>
+
+{% endblock %}
+
+{% block javascript %}
+    <$ script([
+        'home/index/index.js'
+    ]) $>
+{% endblock %}
+

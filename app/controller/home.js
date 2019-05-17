@@ -9,7 +9,7 @@ class HomeController extends Controller {
     
     const { ctx } = this;
     
-    await this.ctx.render('home/index/index.nj',{num:1});
+    await this.ctx.render('home/index/index.nj',{num:'fz lixiao  '});
   }
 }
 

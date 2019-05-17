@@ -2,7 +2,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 const basePath = path.resolve(__dirname, "../");
 const publicPath = path.resolve(basePath,'app/public/')
 const staticPath = path.resolve(basePath,'static/')
@@ -22,12 +22,10 @@ function getPages(){
     let arr = [];
     files.forEach(item => {
         let dirpath = /static\/(.*)\/index.js$/g.exec(item)[1]
-        arr.push(
-            new HtmlWebpackPlugin({
-                template:path.resolve(staticPath,`${dirpath}/view/index.nj`),
-                filename:path.resolve(basePath, `app/view/${dirpath}/index.nj`)
-            })
-        )
+        arr.push({
+            from: path.resolve(staticPath,`${dirpath}/view/index.nj`),
+            to: path.resolve(basePath, `app/view/${dirpath}/index.nj`)
+        })
     });
     return arr;
 }
@@ -38,7 +36,6 @@ module.exports = {
     output: {
         filename: '[name].js?v=[hash]',
         path: publicPath, 
-        publicPath:'/',
         chunkFilename: '[name].js?v=[hash]'
     },
     optimization: {
@@ -91,7 +88,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-lo ader','css-loader']
+                use: ['style-loader','css-loader']
             },
             {
                 test: /\.scss$/,
@@ -150,26 +147,24 @@ module.exports = {
             dry: false,
         }),
         new ExtractTextPlugin({
-            filename:'[name].css??v=[hash]'
+            filename:'[name].css'
         }),
-        
-        ...getPages()
         // new ManifestPlugin(),
-        // new NunjucksWebpackPlugin({
-        //     templates: getPages(),
-        //     configure:{
-        //         options:{
-        //             autoescape:false,
-        //             trimBlocks:true,
-        //             lstripBlocks:true, 
-        //             tags:{
-        //                 variableStart: '<$',
-        //                 variableEnd: '$>',
-        //                 commentStart: '<#',
-        //                 commentEnd: '#>'
-        //             } 
-        //         },
-        //     }
-        //   })
+        new NunjucksWebpackPlugin({
+            templates: getPages(),
+            configure:{
+                options:{
+                    autoescape:false,
+                    trimBlocks:true,
+                    lstripBlocks:true, 
+                    tags:{
+                        variableStart: '<$',
+                        variableEnd: '$>',
+                        commentStart: '<#',
+                        commentEnd: '#>'
+                    } 
+                },
+            }
+          })
     ]
 }

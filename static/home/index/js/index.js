@@ -1,5 +1,5 @@
 import $ from 'jquery'
 import sm from './sm.js'
-$('.h').html('jquery222 input')
-console.log('11fsfss11=333==111==sdfsdfsdf222===2222')
-console.log(sm.init())
+$('.bk').html('j1111222111222442222ff3sdfsd')
+var sa  = '1'
+console.log(sa)
