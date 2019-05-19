@@ -22,7 +22,6 @@ let conf = {
             var key = /static\/(.*).js$/g.exec(item)[1]
             map[key] = './'+key+'.js';
         });
-       
         this.enters = map;
     },
     initPages(){
@@ -49,8 +48,6 @@ let conf = {
     }
 }
 conf.init();
-
-console.log(conf.pages)
 module.exports = {
     entry: conf.enters,
     context: staticPath,
