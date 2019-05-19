@@ -7,46 +7,58 @@ const publicPath = path.resolve(basePath,'app/public/')
 const staticPath = path.resolve(basePath,'static/')
 
 const glob = require("glob")
-function getentry(){
-    var files = glob.sync('static/**/!(js)/index.js')
-    let map = {};
-    files.forEach(item => {
-        var key = /static\/(.*).js$/g.exec(item)[1]
-        map[key] = './'+key+'.js';
-    });
-    return map;
+
+let conf = {
+    enters:{},
+    pages:[],
+    init(){
+        this.initEnters();
+        this.initPages();
+    },
+    initEnters(){
+        var files = glob.sync('static/**/!(js)/index.js')
+        let map = {};
+        files.forEach(item => {
+            var key = /static\/(.*).js$/g.exec(item)[1]
+            map[key] = './'+key+'.js';
+        });
+       
+        this.enters = map;
+    },
+    initPages(){
+        var list = Object.keys(this.enters)
+        var pagelist = []
+        list.forEach(item => {
+            let curpath = item.substring(0,item.lastIndexOf('/'))
+            pagelist.push(
+                new HtmlWebpackPlugin({
+                    template:path.resolve(staticPath,`${curpath}/view/index.nj`),
+                    filename:path.resolve(basePath, `app/view/${curpath}/index.nj`),
+                    chunks:[
+                        "common/default",
+                        "common/vendors",
+                        item
+                    ],
+                    minify:{
+                        collapseWhitespace:true
+                    }
+                })
+            )
+        })
+        this.pages = pagelist;
+    }
 }
+conf.init();
 
-
-function getPages(){
-    let files = glob.sync('static/**/!(js)/index.js');
-    let arr = [];
-    files.forEach(item => {
-        let dirpath = /static\/(.*)\/index.js$/g.exec(item)[1]
-        arr.push(
-            new HtmlWebpackPlugin({
-                template:path.resolve(staticPath,`${dirpath}/view/index.nj`),
-                filename:path.resolve(basePath, `app/view/${dirpath}/index.nj`),
-                chunks:[
-                    'common/index',
-                    "common/default",
-                    "common/vendors",
-                    path.join(dirpath,'index')
-                ]
-            })
-        )
-    });
-    return arr;
-}
-
+console.log(conf.pages)
 module.exports = {
-    entry: getentry(),
+    entry: conf.enters,
     context: staticPath,
     output: {
-        filename: '[name].js?v=[hash]',
+        filename: '[name].[chunkhash:7].js',
         path: publicPath, 
         publicPath:'/',
-        chunkFilename: '[name].js?v=[hash]'
+        chunkFilename: '[name].[chunkhash:7].js'
     },
     optimization: {
         splitChunks: {
@@ -86,16 +98,16 @@ module.exports = {
     },
     module:{
         rules:[
-            {
-                test: /\.html$/,
-                use: {
-                    loader: 'html-loader',
-                    options: {
-                        attrs: ['img:src', 'img:data-src', 'audio:src'],
-                        // minimize: true
-                    }
-                }
-            },
+            // {
+            //     test: /\.nj$/,
+            //     use: {
+            //         loader: 'html-loader',
+            //         options: {
+            //             attrs: ['img:src', 'img:data-src', 'audio:src'],
+            //             // minimize: true
+            //         }
+            //     }
+            // },
             {
                 test: /\.css$/,
                 use: ['style-lo ader','css-loader']
@@ -157,10 +169,10 @@ module.exports = {
             dry: false,
         }),
         new ExtractTextPlugin({
-            filename:'[name].css??v=[hash]'
+            filename:'[name].[chunkhash:7].css'
         }),
         
-        ...getPages()
+        ...conf.pages
         
     ]
 }

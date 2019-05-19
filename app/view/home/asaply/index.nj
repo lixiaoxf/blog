@@ -1,13 +1,1 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="uft-8"/>
-    <link href="/home/asaply/index.css??v=337474898ff3aac71e9a" rel="stylesheet"></head>
-    <body>
-        <div class="bk">
-            lixiao111{{num}}
-        </div>
-        <div class="h">111123123123222lixiao</div>
-
-    <script type="text/javascript" src="/common/vendors.js?v=337474898ff3aac71e9a"></script><script type="text/javascript" src="/home/asaply/index.js?v=337474898ff3aac71e9a"></script></body>
-</html>
+<!DOCTYPE html><html><head><meta charset="uft-8"><link href="/home/asaply/index.f14d2f3.css" rel="stylesheet"></head><body><div class="bk">lixiao111{{num}}</div><div class="h">111123123123222lixiao</div><script type="text/javascript" src="/common/vendors.122fcc2.js"></script><script type="text/javascript" src="/home/asaply/index.f14d2f3.js"></script></body></html>

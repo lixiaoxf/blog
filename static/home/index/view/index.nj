@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="uft-8"/>
-        <% include /common/view/base.nj %>
         
+        <%= require('html-loader!@/common/view/base.nj') %>
     </head>
     <body>
         <div class="bk">
-            lixiao111{{num}}
+            lixiao111{{num}} 
         </div>
-        <div class="h">111123123123222lixiao</div>
+        <div class="h"> 111123123123222lixiao </div>
 
     </body>
 </html>
