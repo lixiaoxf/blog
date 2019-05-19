@@ -1,64 +1,42 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
+
 const basePath = path.resolve(__dirname, "../");
 const publicPath = path.resolve(basePath,'app/public/')
 const staticPath = path.resolve(basePath,'static/')
 
 const glob = require("glob")
-
-let conf = {
-    enters:{},
-    pages:[],
-    init(){
-        this.initEnters();
-        this.initPages();
-    },
-    initEnters(){
-        var files = glob.sync('static/**/!(js)/index.js')
-        let map = {};
-        files.forEach(item => {
-            var key = /static\/(.*).js$/g.exec(item)[1]
-            map[key] = './'+key+'.js';
-        });
-       
-        this.enters = map;
-    },
-    initPages(){
-        var list = Object.keys(this.enters)
-        var pagelist = []
-        list.forEach(item => {
-            let curpath = item.substring(0,item.lastIndexOf('/'))
-            pagelist.push(
-                new HtmlWebpackPlugin({
-                    template:path.resolve(staticPath,`${curpath}/view/index.nj`),
-                    filename:path.resolve(basePath, `app/view/${curpath}/index.nj`),
-                    chunks:[
-                        "common/default",
-                        "common/vendors",
-                        item
-                    ],
-                    minify:{
-                        collapseWhitespace:true
-                    }
-                })
-            )
-        })
-        this.pages = pagelist;
-    }
+function getentry(){
+    var files = glob.sync('static/**/!(js)/index.js')
+    let map = {};
+    files.forEach(item => {
+        var key = /static\/(.*).js$/g.exec(item)[1]
+        map[key] = './'+key+'.js';
+    });
+    return map;
 }
-conf.init();
+function getPages(){
+    let files = glob.sync('static/**/!(js)/index.js');
+    let arr = [];
+    files.forEach(item => {
+        let dirpath = /static\/(.*)\/index.js$/g.exec(item)[1]
+        arr.push({
+            from: path.resolve(staticPath,`${dirpath}/view/index.nj`),
+            to: path.resolve(basePath, `app/view/${dirpath}/index.nj`)
+        })
+    });
+    return arr;
+}
 
-console.log(conf.pages)
 module.exports = {
-    entry: conf.enters,
+    entry: getentry(),
     context: staticPath,
     output: {
-        filename: '[name].[chunkhash:7].js',
+        filename: '[name].js?v=[hash]',
         path: publicPath, 
-        publicPath:'/',
-        chunkFilename: '[name].[chunkhash:7].js'
+        chunkFilename: '[name].js?v=[hash]'
     },
     optimization: {
         splitChunks: {
@@ -98,19 +76,19 @@ module.exports = {
     },
     module:{
         rules:[
-            // {
-            //     test: /\.nj$/,
-            //     use: {
-            //         loader: 'html-loader',
-            //         options: {
-            //             attrs: ['img:src', 'img:data-src', 'audio:src'],
-            //             // minimize: true
-            //         }
-            //     }
-            // },
+            {
+                test: /\.nj$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        attrs: ['img:src', 'img:data-src', 'audio:src'],
+                        minimize: true
+                    }
+                }
+            },
             {
                 test: /\.css$/,
-                use: ['style-lo ader','css-loader']
+                use: ['style-loader','css-loader']
             },
             {
                 test: /\.scss$/,
@@ -169,10 +147,24 @@ module.exports = {
             dry: false,
         }),
         new ExtractTextPlugin({
-            filename:'[name].[chunkhash:7].css'
+            filename:'[name].css'
         }),
-        
-        ...conf.pages
-        
+        // new ManifestPlugin(),
+        new NunjucksWebpackPlugin({
+            templates: getPages(),
+            configure:{
+                options:{
+                    autoescape:false,
+                    trimBlocks:true,
+                    lstripBlocks:true, 
+                    tags:{
+                        variableStart: '<$',
+                        variableEnd: '$>',
+                        commentStart: '<#',
+                        commentEnd: '#>'
+                    } 
+                },
+            }
+          })
     ]
 }
