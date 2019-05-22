@@ -134,8 +134,7 @@ module.exports = {
                     {// base64图片
                         loader:'url-loader',
                         options:{
-                            name:'res/[path][name][hash:5].min.[ext]',
-                            publicPath:'/',
+                            outputPath:'image/',
                             limit: 1000
                         }
                     },
