@@ -1,0 +1,8 @@
+node_modules
+logs
+run
+typings
+app/public/
+app/view/
+.idea
+.travis.yml

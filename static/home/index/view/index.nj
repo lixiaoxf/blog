@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
         <%= require('html-loader!@/common/view/base.nj') %>
     </head>
     <body>
-        <div class="bk">
-            lixiao111{{num}} 
+        <%= require('html-loader!@/component/header/view/index.nj') %>
+        <div class="container">
+            <div class="row"></div>
         </div>
-        <div class="h"> 111123123123222lixiao </div>
-
     </body>
 </html>

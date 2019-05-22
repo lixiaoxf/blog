@@ -16,7 +16,7 @@ let conf = {
         this.initPages();
     },
     initEnters(){
-        var files = glob.sync('static/**/!(js)/index.js')
+        var files = glob.sync('static/!(common|component)/**/!(js)/index.js')
         let map = {};
         files.forEach(item => {
             var key = /static\/(.*).js$/g.exec(item)[1]
@@ -107,7 +107,7 @@ module.exports = {
             // },
             {
                 test: /\.css$/,
-                use: ['style-lo ader','css-loader']
+                use: ['style-loader','css-loader']
             },
             {
                 test: /\.scss$/,
