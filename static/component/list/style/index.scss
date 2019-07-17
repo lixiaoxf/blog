@@ -1,0 +1,40 @@
+@import '@/common/style/_var.scss';
+@import "~bootstrap/scss/bootstrap";
+.site-header.navbar{
+    box-shadow: 0 0px 0.2em rgba($site-base-color, .5);
+    .navbar-brand{
+        margin-right:5rem;
+        .site-log{
+            width: 3.5rem;
+            height: 3.5rem;
+            background: url('../res/logo.jpg') no-repeat center;
+            background-size: cover;
+        }
+    }
+    @include media-breakpoint-up(lg){
+        .navbar-nav{
+            .nav-item{
+                font-weight: 500;
+                position: relative;
+                .nav-link{
+                    padding-left:1rem;
+                    padding-right:1rem;
+                }
+                &.active{
+                    .nav-link{
+                        &::after{
+                            content: '';
+                            top:3.7rem;
+                            position: absolute;
+                            left:50%;
+                            transform: translate(-50%);
+                            height: 2px;
+                            background: $site-base-color;
+                            width: calc(100% - 40px)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

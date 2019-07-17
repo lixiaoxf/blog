@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%= require('html-loader!@/common/view/base.nj') %>
+       {% include "../../common/base.nj" %}
     </head>
     <body>
-        <%= require('html-loader!@/component/header/view/index.nj') %>
-        <div class="container">
-            1111
-        </div>
+        {% include "../../component/header/index.nj" %}
+        {% include "./content.nj" %}
+        {% include "../../component/bottom/index.nj" %}
     </body>
 </html>

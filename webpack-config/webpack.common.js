@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const basePath = path.resolve(__dirname, "../");
 const publicPath = path.resolve(basePath,'app/public/')
 const staticPath = path.resolve(basePath,'static/')
-
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const glob = require("glob")
 
 let conf = {
@@ -167,7 +167,33 @@ module.exports = {
         new ExtractTextPlugin({
             filename:'[name].[chunkhash:7].css'
         }),
-        
+        new CopyWebpackPlugin([
+            {
+              from: path.resolve(staticPath, 'component/**/view/*.nj'),
+              to: path.resolve(__dirname, '../app/view/'),
+              transformPath(targetPath, absolutePath) {
+                var reg = /view\/([a-zA-Z0-9_-]+\.nj)$/  
+                return  targetPath.replace(reg,'$1')
+              },
+            },
+            {
+                from: path.resolve(staticPath, 'common/**/view/*.nj'),
+                to: path.resolve(__dirname, '../app/view/'),
+                transformPath(targetPath, absolutePath) {
+                  var reg = /view\/([a-zA-Z0-9_-]+\.nj)$/  
+                  return  targetPath.replace(reg,'$1')
+                },
+            },
+            {
+                from: path.resolve(staticPath, '**/view/*.nj'),
+                to: path.resolve(__dirname, '../app/view/'),
+                transformPath(targetPath, absolutePath) {
+                  var reg = /view\/([a-zA-Z0-9_-]+\.nj)$/  
+                  return  targetPath.replace(reg,'$1')
+                },
+                ignore:['**/view/index.nj']
+            }
+        ]), 
         ...conf.pages
         
     ]
