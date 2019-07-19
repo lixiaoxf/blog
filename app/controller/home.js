@@ -8,7 +8,7 @@ class HomeController extends Controller {
     // console.log(a)
     
     const { ctx } = this;
-    
+    console.log(this)
     await this.ctx.render('home/index/index.nj',{list:['adf','adf22','bb','asfdff333','cvzv55']});
   }
 }

@@ -1,3 +1,3 @@
 <div class='container'>
-    {% include "../../component/list/index.nj" %}
+    {% include ctx.helper.includeView("component/list/index.nj") %}
 </div>

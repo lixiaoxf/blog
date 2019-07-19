@@ -1,7 +1,6 @@
-
+const path = require('path')
 module.exports = {
-    staticMap(){
-        console.log('111')
-        return '11'
+    includeView(file){
+        return path.resolve(this.ctx.app.baseView,file)
     }
 }

@@ -26,7 +26,7 @@ class AppBootHook {
     // 例如：从数据库加载数据到内存缓存
     
 
-    this.app.nunjucks.addGlobal('siteconfig',this.app.config.siteconfig)
+    this.app.nunjucks.addGlobal(' ',this.app.config.siteconfig)
   }
 
   async didReady() {
