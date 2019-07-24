@@ -1,3 +1,5 @@
 <div class='container'>
-    {% include ctx.helper.includeView("component/list/index.nj") %}
+    <main class='pt-4'>
+        {% include ctx.helper.includeView("component/list/index.nj") %}
+    </main>
 </div>
