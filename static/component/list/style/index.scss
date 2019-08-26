@@ -1,3 +1,10 @@
+@import '@/common/style/base.scss';
 @import '@/common/style/_var.scss';
 @import "~bootstrap/scss/bootstrap";
 @import '@/component/list-card/style/index.scss';
+.article-list{
+    .article-list-card{
+        padding: 0 rem(10);
+        margin-bottom:rem(20);
+    }
+}

@@ -1,0 +1,12 @@
+.site-bottom{
+    height: rem(100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    color: #fff;
+    p {
+        margin-right:rem(35);
+        margin-bottom: 0;
+    }
+}

@@ -1,7 +1,22 @@
-
 .card{
     border:none;
+    box-shadow: 0 rem(4) rem(4) rgba(0,0,0,.2);
+    transition: all ease .2s;
+    cursor: pointer;
     .card-body {
         padding:0;
+    }
+    .card-title{
+        margin: rem(12) 0;
+        height: rem(50);
+        overflow: hidden;
+        padding: 0 rem(8);
+    }
+    .card-img-top{
+        height: rem(160);
+        box-shadow: 0 rem(2) rem(2) rgba(0,0,0,.8);
+    }
+    &:hover{
+        box-shadow: 0 rem(4) rem(8) rgba(0,0,0,.4);
     }
 }

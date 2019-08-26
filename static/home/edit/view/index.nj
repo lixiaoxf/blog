@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       {% include ctx.helper.includeView('common/base.nj') %}
+    </head>
+    <body>
+        {% include ctx.helper.includeView('component/header/index.nj') %}
+        {% include ctx.helper.includeView('home/edit/content.nj') %}
+        {% include ctx.helper.includeView('component/bottom/index.nj') %}
+    </body>
+</html>
