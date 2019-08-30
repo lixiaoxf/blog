@@ -1,5 +1,4 @@
 import $ from 'jquery'
-import sm from './sm.js.js'
 
 
 $('#btn').on('click',function(){

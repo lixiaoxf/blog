@@ -1,6 +1,8 @@
-<div class='container'>
-    <main class='pt-4'>
-        编辑页
+<div class='container edit-wrap'>
+    <main class='edit'>
         
+        <div id='editor'></div>
+        <div id='btn1'>获取</div>
+        <div id='content'></div>
     </main>
 </div>
