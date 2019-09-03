@@ -3,7 +3,7 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
 
-    let a = await this.ctx.service.test.index.getData() 
+    let a = await this.ctx.model.Test.find({});
     console.log(a)
     const { ctx } = this;
     console.log(this)

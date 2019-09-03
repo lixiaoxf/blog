@@ -5,7 +5,7 @@ exports.nunjucks = {
   package: 'egg-view-nunjucks',
 };
 
-// exports.mongoose = {
-//   enable: true,
-//   package: 'egg-mongoose',
-// };
+exports.mongoose = {
+  enable: true,
+  package: 'egg-mongoose',
+};

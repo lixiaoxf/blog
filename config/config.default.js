@@ -51,7 +51,7 @@ module.exports = appInfo => {
   config.mongoose = {
     clients: {
       db: {
-        url: 'mongodb://lixiao:lixiao@127.0.0.1:27017/',
+        url: 'mongodb://127.0.0.1:27017/blog',
         options: {
           poolSize: 40,
           useNewUrlParser:true

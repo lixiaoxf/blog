@@ -16,6 +16,6 @@ module.exports = app => {
         }
     });
 
-    return conn.model('bk', UserSchema);
+    return conn.model('user', UserSchema);
 
   };
