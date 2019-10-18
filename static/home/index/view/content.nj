@@ -1,5 +1,7 @@
+{% import 'component/blogs/list/index.nj' as tmp %}
 <div class='container'>
     <main class='pt-4'>
-        {% include ctx.helper.includeView("component/list/index.nj") %}
+        
+        {{tmp.list(list)}}
     </main>
 </div>

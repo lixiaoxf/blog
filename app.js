@@ -1,5 +1,4 @@
 const path = require('path')
-const staticMap = require('./app/common/appUtil/staticMap.js')
 class AppBootHook {
 
   constructor(app) {
