@@ -1,5 +1,5 @@
 <div class='container edit-wrap'>
     <main class='edit'>
-        detail
+        {{blog.title}}
     </main>
 </div>

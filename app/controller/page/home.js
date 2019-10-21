@@ -3,8 +3,9 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
 
-    // let a = await this.ctx.model.Blog.create({title:'vue',des:'开始vue',content:'vue的生命周期'});
+    // let a = await this.ctx.model.Blog.create({title:'vue2',des:'开始vue2',content:'vue的生命周期hhha'});
     let blogs = await this.ctx.model.Blog.find()
+    console.log(blogs)
     const { ctx } = this;
     await this.ctx.render('home/index/index.nj',{list:blogs});
   }
@@ -15,8 +16,10 @@ class HomeController extends Controller {
     // console.log(a)
     
     const { ctx } = this;
-    console.log(this)
-    await this.ctx.render('home/edit/index.nj');
+    let id = ctx.params.id;
+    let blog = await this.ctx.model.Blog.update({ _id: id },{title:'vuehahahah'})
+    console.log(blog)
+    await this.ctx.render('home/edit/index.nj',{ blog });
   }
   async detail() {
 
@@ -25,8 +28,9 @@ class HomeController extends Controller {
     // console.log(a)
     
     const { ctx } = this;
-    console.log(this)
-    await this.ctx.render('home/detail/index.nj');
+    let id = ctx.params.id;
+    let blog = await this.ctx.model.Blog.findOne({ _id: id })
+    await this.ctx.render('home/detail/index.nj',{ blog });
   }
 }
 

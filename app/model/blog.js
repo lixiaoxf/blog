@@ -3,7 +3,7 @@ module.exports = app => {
     const Schema = mongoose.Schema;
     const conn = app.mongooseDB.get('db'); 
    
-    const Blog = new Schema({
+    const Blog = new Schema({  
       title: { type: String  },
       des: { type: String  },
       content: { type: String  },
