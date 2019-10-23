@@ -1,10 +1,8 @@
- {% import 'component/blogs/list-card/index.nj' as tmp %}
+{% import 'component/blogs/list-card/index.nj' as tmp %}
 {% macro list(listData) %}
-    {# {% import ctx.helper.includeView('component/blogs/list-card/index.nj') as listCard %} #}
     <div class='row article-list'>
         {% for item in listData %}
             <div class="col-3 article-list-card">
-                {# {% include ctx.helper.includeView('component/list-card/index.nj') %} #}
                 {{tmp.card(item)}}
             </div>
         {% endfor %}
