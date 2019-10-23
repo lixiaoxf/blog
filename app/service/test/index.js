@@ -11,7 +11,7 @@ let Schema = mongoose.Schema;
 class testService extends Service {
     async getData() {
         console.log(this.app.mongoose)
-        const conn = this.app.mongooseDB.get('db1'); 
+        const conn = this.app.mongooseDB.get('db'); 
         const UserSchema = new Schema({
             userName: { type: String  },
             age: { type: String  },

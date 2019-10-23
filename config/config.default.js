@@ -51,7 +51,7 @@ module.exports = appInfo => {
   config.mongoose = {
     clients: {
       db: {
-        url: 'mongodb://blog:blog@localhost:27017/blog',
+        url: 'mongodb://localhost:27017/blog',
         options: {
           poolSize: 40,
           useNewUrlParser:true
