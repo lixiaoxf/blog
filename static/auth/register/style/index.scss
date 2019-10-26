@@ -27,8 +27,12 @@
                 box-sizing: border-box;
                 cursor: pointer;
                 height: rem(50);
+                transition: all .2s ease;
+                border:rem(2) solid transparent;
                 &:hover{
-                    background: #0e1852;
+                    border:rem(2) solid $site-base-color;
+                    color:$site-base-color;
+                    background: #fff;
                 }
             }
             input {

@@ -2,9 +2,12 @@
 const Controller = require('egg').Controller;
 class LoginController extends Controller {
   async index() {
-    let blogs = await this.ctx.model.Blog.find()
     const { ctx } = this;
-    await this.ctx.render('home/index/index.nj',{list:blogs});
+    await this.ctx.render('auth/login/index.nj');
+  }
+  async register(){
+    const { ctx } = this;
+    await this.ctx.render('auth/register/index.nj'); 
   }
 }
 

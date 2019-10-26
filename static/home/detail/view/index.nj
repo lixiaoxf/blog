@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-       {% include ctx.helper.includeView('common/base.nj') %}
+       {% include 'common/base.nj' %}
     </head>
     <body>
-        {% include ctx.helper.includeView('component/header/index.nj') %}
-        {% include './content.nj' %}
-        {% include ctx.helper.includeView('component/bottom/index.nj') %}
+        {% include 'component/header/index.nj' %}
+        {% include 'home/detail/content.nj' %}
+        {% include 'component/bottom/index.nj' %}
     </body>
 </html>

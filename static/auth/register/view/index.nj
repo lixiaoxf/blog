@@ -5,7 +5,7 @@
     </head>
     <body>
         {% include 'component/header/index.nj' %}
-        {% include 'home/edit/content.nj' %}
+        {% include './content.nj' %}
         {% include 'component/bottom/index.nj' %}
     </body>
 </html>
