@@ -10,9 +10,9 @@ class HomeController extends Controller {
       name:'lixiao',
       id:'12321'
     },'lixiaobloghas')
-    console.log(a)
+   
     let b = jwt.verify(a, 'lixiaobloghas');
-    console.log(b)
+   
     const { ctx } = this;
     await this.ctx.render('home/index/index.nj',{list:blogs},{ expiresIn: 3600});
   }
@@ -25,7 +25,7 @@ class HomeController extends Controller {
     const { ctx } = this;
     let id = ctx.params.id;
     let blog = await this.ctx.model.Blog.update({ _id: id },{title:'vuehahahah'})
-    console.log(blog)
+    
     await this.ctx.render('home/edit/index.nj',{ blog });
   }
   async detail() {

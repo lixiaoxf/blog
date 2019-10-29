@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import api from './api'
+import api from '@/auth/api/register'
 $(function(){
     $('#btn').on('click',function(){
         let name = $('#name').val();

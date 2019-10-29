@@ -7,6 +7,10 @@
  */
 const os = require('os');
 const path = require('path');
+const url = require('url')
+
+const matchTokenUrl = require('../app/common/appUtil/matchTokenUrl')
+
 function getIPAdress() {
     var interfaces = os.networkInterfaces();
     for (var devName in interfaces) {
@@ -35,8 +39,8 @@ module.exports = appInfo => {
   };
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1551162394420_1020';
-
+  config.keys = 'zfsofoez-*#*sad;f93240978F:Jdlsd908zvc;lkaj324.,a;pu238947a;fhd;fazcv897bn7ntfhuejth243jhfosudio';
+  config.tokenKey = '@ms-webkit-lixiaoblog-mumu-random-sf3kljsdf9324jklsdfsd324jlkjsdzvcmn!@#L:J@#!@#LK!@#LJK%$KLFS_()$#LKJ';
   // add your middleware config here
   config.middleware = [];
 
@@ -71,6 +75,17 @@ module.exports = appInfo => {
     csrf:{
       headerName: 'x-csrf-token',
       enable: false,
+    }
+  }
+  config.middleware = [ 'checkToken' ]
+  config.checkToken = {
+    match(ctx){
+        const pathName = url.parse(ctx.request.url).pathname;
+        if(matchTokenUrl(pathName)){
+          return false;
+        }else{
+          return true;
+        }
     }
   }
   // add your user config here

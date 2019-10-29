@@ -1,10 +1,10 @@
 import $ from 'jquery'
-import api from './api'
+import api from '@/auth/api/login'
 $(function(){
     $('#btn').on('click',function(){
         let name = $('#name').val();
         let password = $('#password').val();
-        api.register({
+        api.login({
             'name':name,
             'password':password
         }).then(res=>{
