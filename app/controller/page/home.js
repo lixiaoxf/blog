@@ -3,18 +3,19 @@ const jwt = require('jsonwebtoken')
 const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
-
-    // let a = await this.ctx.model.Blog.create({title:'vue2',des:'开始vue2',content:'vue的生命周期hhha'});
     let blogs = await this.ctx.model.Blog.find()
-    let a = jwt.sign({
-      name:'lixiao',
-      id:'12321'
-    },'lixiaobloghas')
-   
-    let b = jwt.verify(a, 'lixiaobloghas');
-   
     const { ctx } = this;
     await this.ctx.render('home/index/index.nj',{list:blogs},{ expiresIn: 3600});
+  }
+  async addBlog() {
+
+    // let a = await this.ctx.model.Test.find({},res=>{})
+
+    // console.log(a)
+    
+    const { ctx } = this;
+    
+    await this.ctx.render('home/edit/index.nj');
   }
   async edit() {
 

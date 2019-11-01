@@ -1,8 +1,6 @@
 <div class='container edit-wrap'>
-    <main class='edit'>
-        
-        <div id='editor'></div>
-        <div id='btn1'>获取</div>
-        <div id='content'></div>
+    <main class='edit'> 
+        <div id='editor' class='blog-content'>
+        </div>
     </main>
 </div>

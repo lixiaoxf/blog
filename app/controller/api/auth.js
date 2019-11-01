@@ -24,7 +24,7 @@ class ApiController extends Controller {
             name: reqUser.name,
             password: reqUser.password
           },ctx.app.config.tokenKey); 
-          
+
         let res = await this.ctx.model.Token.findOneAndUpdate({
             uid:curUser._id,
             token:token
@@ -36,6 +36,7 @@ class ApiController extends Controller {
                 token:token
             })
         }
+        
         ctx.cookies.set('token',token,{
             maxAge:1000*3600*24*7,
             signed:true,

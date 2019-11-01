@@ -82,9 +82,9 @@ module.exports = appInfo => {
     match(ctx){
         const pathName = url.parse(ctx.request.url).pathname;
         if(matchTokenUrl(pathName)){
-          return false;
-        }else{
           return true;
+        }else{
+          return false;
         }
     }
   }

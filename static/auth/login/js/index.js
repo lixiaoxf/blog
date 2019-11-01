@@ -8,7 +8,9 @@ $(function(){
             'name':name,
             'password':password
         }).then(res=>{
-            console.log(res)
+            if(res.error == 0){
+                window.location.href = '/'
+            }
         })
     })
 })
