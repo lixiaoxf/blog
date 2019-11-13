@@ -2,12 +2,13 @@
 @import './var';
 @import "~bootstrap/scss/functions";
 
-$base : 16;
+$base : 18;
 @function rem($num){
     @return ($num/$base)+rem;
 }
 html,html body {
     width: 100%;
     height:100%;
+    font-size: $base+px;
 }
 @import "@/component/bottom/style/index.scss";

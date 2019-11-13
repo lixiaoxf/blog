@@ -1,6 +1,8 @@
 <div class='container edit-wrap'>
     <main class='edit'> 
-        <div id='editor' class='blog-content'>
+        <div id='editor' class='site-text blog-content'>
         </div>
+        <div id='save'>发送</div>
+        <div class='blog-content' id='outMsg'></div>
     </main>
 </div>

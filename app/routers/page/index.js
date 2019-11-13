@@ -10,6 +10,7 @@ module.exports = app => {
   
   router.get('/add',controller.page.home.addBlog)
   router.get('/edit/:id', controller.page.home.edit);
+  router.get('/new', controller.page.home.createBlog);
   router.get('/detail/:id', controller.page.home.detail);
   router.get('/login', controller.page.login.index);
   router.get('/register', controller.page.login.register);

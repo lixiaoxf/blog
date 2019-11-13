@@ -40,6 +40,11 @@ class HomeController extends Controller {
     let blog = await this.ctx.model.Blog.findOne({ _id: id })
     await this.ctx.render('home/detail/index.nj',{ blog });
   }
+  async createBlog() {
+
+    
+    await this.ctx.render('home/edit/index.nj');
+  }
 }
 
 module.exports = HomeController;

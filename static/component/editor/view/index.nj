@@ -1,0 +1,13 @@
+{% import 'component/blogs/list-card/index.nj' as tmp %}
+{% macro list(listData) %}
+    <div class='row article-list'>
+        {% for item in listData %}
+            <div class="col-3 article-list-card">
+                {{tmp.card(item)}}
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+
+

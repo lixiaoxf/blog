@@ -1,4 +1,8 @@
-.blog-content {
-    height: rem(400);
-    
+// @import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+.ck-editor {
+    min-width: 800px !important;
+}
+.ck-content {
+    min-height: 200px;
 }
