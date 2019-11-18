@@ -1,8 +1,15 @@
 <div class='container edit-wrap'>
-    <main class='edit'> 
-        <div id='editor' class='site-text blog-content'>
+    <div class='edit'> 
+        <div class='item'>
+            <label>
+                <span class='label'>标签</span>    
+                <input class='label-msg' id='labels' type='text'/>
+            </label>
         </div>
-        <div id='save'>发送</div>
-        <div class='blog-content' id='outMsg'></div>
-    </main>
+        <div class='item'>
+            <span class='label'>内容</span>
+            <div id="editor" class='blog-content site-text'></div>
+            <div id='save' class='btn btn-primary float-right'>发送</div>
+        </div>
+    </div>
 </div>

@@ -8,10 +8,10 @@ class ApiController extends Controller {
   }
   async index() {
     const { ctx } = this;
-    const { list } = await ctx.service.video.getData()
+    console.log(ctx.request.body)
     ctx.body = {
         error:0,
-        data:list
+        data:''
     }
   }
 }

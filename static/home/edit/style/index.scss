@@ -2,6 +2,31 @@
 @import './editor.scss';
 .edit-wrap{
     .edit{
-        padding: rem(30) 0;
+        padding: rem(60) rem(30);
+    }
+    input {
+        outline:none;
+    }
+    .item{
+        position: relative;
+        margin-bottom: 75px;
+        label{
+            width: 100%;
+        }
+        .btn{
+            margin-top: 10px;
+        }
+        .label{
+            position: absolute;
+            left:0;
+            top:-30px;
+            color:#9a9a9a;
+        }
+        .label-msg{
+            border:none;
+            width: 100%;
+            padding: 5px;
+            border-bottom: 1px solid #9a9a9a;
+        }
     }
 }

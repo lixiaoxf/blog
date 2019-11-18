@@ -1,5 +1,5 @@
 const urls = [
-    '/api/'
+    '/v/api/'
 ]
 module.exports = function(url){
     return urls.some(item => {
