@@ -1,14 +1,14 @@
 @import "./reset.scss";
 @import './var';
-@import "~bootstrap/scss/functions";
-
-$base : 18;
-@function rem($num){
-    @return ($num/$base)+rem;
-}
+@import './layout.scss';
+@import './rem.scss';
 html,html body {
     width: 100%;
     height:100%;
     font-size: $base+px;
+}
+::selection {
+    color: #fff;
+    background: rgba(247,65,65,0.761);
 }
 @import "@/component/bottom/style/index.scss";

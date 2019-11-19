@@ -1,7 +1,4 @@
 {% import 'component/blogs/list/index.nj' as tmp %}
-<div class='container'>
-    <main class='pt-4'>
-        
-        {{tmp.list(list)}}
-    </main>
+<div class='site-index''>
+    {{tmp.list(list)}}
 </div>
