@@ -1,5 +1,3 @@
-<div class='container edit-wrap'>
-    <main class='edit'>
-        {{blog.title}}
-    </main>
+<div class='edit-wrap'>
+    {{ blog.content | safe }}
 </div>

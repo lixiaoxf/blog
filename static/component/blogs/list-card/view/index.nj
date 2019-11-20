@@ -1,10 +1,9 @@
 {% macro card(data) %}
     <a href='/detail/{{data._id}}' class="blog-list-card">
-        <div class='header'>helloWorld</div>
-        <div class='time'>2019-06-06</div>
+        <div class='header'>{{data.title}}</div>
+        <div class='time'>{{data.created}}</div>
         <div class='site-text'>
-            <p>还有什么是不可能这有什么大不了的呢</p>
-            <p>五哈哈哈这有什么大不了的呢</p>
+            {{ data.desc | safe }}
         </div>
     </a>
 {% endmacro %}

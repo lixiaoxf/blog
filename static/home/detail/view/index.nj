@@ -4,8 +4,13 @@
        {% include 'common/base.nj' %}
     </head>
     <body>
-        {% include 'component/header/index.nj' %}
-        {% include 'home/detail/content.nj' %}
-        {% include 'component/bottom/index.nj' %}
+        <div class='page-wrap'>
+            <div class='page-left'>
+                {% include 'component/header/index.nj' %}
+            </div>
+            <div class='page-content'>
+                {% include './content.nj' %}
+            </div>
+        </div>
     </body>
 </html>

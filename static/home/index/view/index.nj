@@ -12,9 +12,5 @@
                 {% include 'home/index/content.nj' %}
             </div>
         </div>
-        {# {% include 'component/header/index.nj' %}
-        {% include 'home/index/content.nj' %}
-        {% include 'component/bottom/index.nj' %} #}
-
     </body>
 </html>

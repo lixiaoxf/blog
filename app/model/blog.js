@@ -5,11 +5,10 @@ module.exports = app => {
    
     const Blog = new Schema({  
       title: { type: String  },
-      des: { type: String  },
+      desc: { type: String  },
       content: { type: String  },
-      img: { type: String },
-      type: { type: String }
-    });
+      labels: { type: String }
+    },{timestamps: {createdAt: 'created', updatedAt: 'updated'}});
    
     return conn.model('blog', Blog);
   }

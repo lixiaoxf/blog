@@ -5,6 +5,7 @@ class HomeController extends Controller {
   async index() {
     let blogs = await this.ctx.model.Blog.find()
     const { ctx } = this;
+    console.log(blogs);
     await this.ctx.render('home/index/index.nj',{list:blogs},{ expiresIn: 3600});
   }
   async addBlog() {
@@ -38,6 +39,7 @@ class HomeController extends Controller {
     const { ctx } = this;
     let id = ctx.params.id;
     let blog = await this.ctx.model.Blog.findOne({ _id: id })
+    console.log(blog);
     await this.ctx.render('home/detail/index.nj',{ blog });
   }
   async createBlog() {
