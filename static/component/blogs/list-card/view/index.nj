@@ -1,7 +1,8 @@
+
 {% macro card(data) %}
     <a href='/detail/{{data._id}}' class="blog-list-card">
         <div class='header'>{{data.title}}</div>
-        <div class='time'>{{data.created}}</div>
+        <div class='time'>{{ data.createTime}}</div>
         <div class='site-text'>
             {{ data.desc | safe }}
         </div>

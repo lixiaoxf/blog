@@ -28,7 +28,7 @@ $(function(){
         }
         var postData = {
             title:title,
-            labels:labels,
+            labels:labels.split(','),
             desc:getDesc(htmlContent),
             content:'<div class="site-text">'+htmlContent+'</div>'
         }

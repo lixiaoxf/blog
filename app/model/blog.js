@@ -7,7 +7,7 @@ module.exports = app => {
       title: { type: String  },
       desc: { type: String  },
       content: { type: String  },
-      labels: { type: String }
+      labels: { type: Array }
     },{timestamps: {createdAt: 'created', updatedAt: 'updated'}});
    
     return conn.model('blog', Blog);

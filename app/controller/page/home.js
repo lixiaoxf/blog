@@ -5,7 +5,13 @@ class HomeController extends Controller {
   async index() {
     let blogs = await this.ctx.model.Blog.find()
     const { ctx } = this;
-    console.log(blogs);
+    let formatBlogs = blogs.map(item => {
+      let createData = item.created
+      item.createTime = `${createData.getFullYear()}年${createData.getMonth()+1}月${createData.getDate()}日`;
+    })
+    // let tagsBlog = await this.ctx.model.Blog.find({labels:{'$all':['vue']}})
+    
+    console.log(this.ctx);
     await this.ctx.render('home/index/index.nj',{list:blogs},{ expiresIn: 3600});
   }
   async addBlog() {

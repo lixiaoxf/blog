@@ -1,4 +1,8 @@
 {% import 'component/blogs/list/index.nj' as tmp %}
+<div class='site-labels'>
+    <a>vue</a>
+    <a>react</a>
+</div>
 <div class='site-index''>
     {{tmp.list(list)}}
 </div>

@@ -2,10 +2,6 @@
 
 const Controller = require('egg').Controller;
 
-function formatSaveData(body){
-  let reg = /<p><\/p>/g
-}
-
 class ApiController extends Controller {
   constructor(ctx) {
     super(ctx);  
@@ -19,7 +15,11 @@ class ApiController extends Controller {
         desc:ctx.request.body.desc,
         labels:ctx.request.body.labels
     })
-    console.log(blog)
+    // let tgroup = await this.ctx.model.Blog.aggregate([
+    //   {$unwind:"$labels"},
+    //   {$group:{_id:"$labels",num_of_tag:{$sum:1}}}
+    // ])
+    console.log(tgroup)
     ctx.body = {
         error:0,
         data:''
