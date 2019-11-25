@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Editor from 'wangEditor';
+import Editor from 'wangeditor';
 function getDesc(body){
     let reg = /<p>(.*?)<\/p>/g
     let ptags = body.match(reg);
