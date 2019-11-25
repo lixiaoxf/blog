@@ -13,5 +13,5 @@ module.exports = app => {
   router.get('/new', controller.page.home.createBlog);
   router.get('/detail/:id', controller.page.home.detail);
   router.get('/login', controller.page.login.index);
-  router.get('/register', controller.page.login.register);
+  // router.get('/register', controller.page.login.register);
 };

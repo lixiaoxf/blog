@@ -5,7 +5,7 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.post('/api/register',controller.api.auth.register)
+  // router.post('/api/register',controller.api.auth.register)
   router.post('/api/login',controller.api.auth.login)
   router.post('/v/api/createBlog',controller.api.createBlog.index)
 };
