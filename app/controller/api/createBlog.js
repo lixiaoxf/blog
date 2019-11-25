@@ -19,7 +19,6 @@ class ApiController extends Controller {
     //   {$unwind:"$labels"},
     //   {$group:{_id:"$labels",num_of_tag:{$sum:1}}}
     // ])
-    console.log(tgroup)
     ctx.body = {
         error:0,
         data:''
