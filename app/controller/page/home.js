@@ -11,7 +11,7 @@ class HomeController extends Controller {
     })
     // let tagsBlog = await this.ctx.model.Blog.find({labels:{'$all':['vue']}})
     
-    console.log(this.ctx);
+    
     await this.ctx.render('home/index/index.nj',{list:blogs},{ expiresIn: 3600});
   }
   async addBlog() {
@@ -30,11 +30,9 @@ class HomeController extends Controller {
 
     // console.log(a)
     
-    const { ctx } = this;
-    let id = ctx.params.id;
-    let blog = await this.ctx.model.Blog.update({ _id: id },{title:'vuehahahah'})
-    
-    await this.ctx.render('home/edit/index.nj',{ blog });
+
+    // let blog = await this.ctx.model.Blog.update({ _id: id },{title:'vuehahahah'})
+    await this.ctx.render('home/edit/index.nj');
   }
   async detail() {
 
@@ -45,7 +43,6 @@ class HomeController extends Controller {
     const { ctx } = this;
     let id = ctx.params.id;
     let blog = await this.ctx.model.Blog.findOne({ _id: id })
-    console.log(blog);
     await this.ctx.render('home/detail/index.nj',{ blog });
   }
   async createBlog() {

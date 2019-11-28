@@ -6,7 +6,6 @@ module.exports = options => {
             encrypt:true,
             signed:true,
         });
-        console.log(cookieToken)
         let tokenMsg = jwt.verify(cookieToken, ctx.app.config.tokenKey);
         
         let cacheToken = await ctx.model.Token.findOne({uid:tokenMsg.id})
