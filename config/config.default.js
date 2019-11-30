@@ -78,16 +78,6 @@ module.exports = appInfo => {
     }
   }
   config.middleware = [ 'checkToken' ]
-  config.checkToken = {
-    match(ctx){
-        const pathName = url.parse(ctx.request.url).pathname;
-        if(matchTokenUrl(pathName)){
-          return true;
-        }else{
-          return false;
-        }
-    }
-  }
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
