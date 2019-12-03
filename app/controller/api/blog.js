@@ -40,7 +40,6 @@ class ApiController extends Controller {
   }
   async index() {
     const { ctx } = this;
-    console.log(ctx.params)
     if(!ctx.params.id){
         ctx.body = {
             error:0,
