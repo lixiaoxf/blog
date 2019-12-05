@@ -1,5 +1,5 @@
-@import '@/common/style/base.scss';
-@import '@/common/style/_var.scss';
+@import 'common/style/rem';
+@import 'common/style/var';
 .login-warp{
     width: 100%;
     min-height: 100%;

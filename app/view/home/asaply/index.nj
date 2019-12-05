@@ -1,1 +1,71 @@
-<!DOCTYPE html><html><head><meta charset="uft-8"><link href="/home/asaply/index.f14d2f3.css" rel="stylesheet"></head><body><div class="bk">lixiao111{{num}}</div><div class="h">111123123123222lixiao</div><script type="text/javascript" src="/common/vendors.38acff9.js"></script><script type="text/javascript" src="/home/asaply/index.f14d2f3.js"></script></body></html>
+Html Webpack Plugin:<pre>
+  Error: Child compilation failed:
+  Module build failed (from ../node_modules/html-webpack-plugin/lib/loader.js):
+  Error: ENOENT: no such file or directory, open '/Users/lixiao/Desktop/blog/blo  g/static/home/asaply/view/index.nj':
+  Error: ENOENT: no such file or directory, open '/Users/lixiao/Desktop/blog/blo  g/static/home/asaply/view/index.nj'
+  
+  - compiler.js:79 childCompiler.runAsChild
+    [blog]/[html-webpack-plugin]/lib/compiler.js:79:16
+  
+  - Compiler.js:306 compile
+    [blog]/[webpack]/lib/Compiler.js:306:11
+  
+  - Compiler.js:630 hooks.afterCompile.callAsync.err
+    [blog]/[webpack]/lib/Compiler.js:630:14
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [blog]/[tapable]/lib/Hook.js:154:20
+  
+  - Compiler.js:627 compilation.seal.err
+    [blog]/[webpack]/lib/Compiler.js:627:30
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [blog]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1325 hooks.optimizeAssets.callAsync.err
+    [blog]/[webpack]/lib/Compilation.js:1325:35
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [blog]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1316 hooks.optimizeChunkAssets.callAsync.err
+    [blog]/[webpack]/lib/Compilation.js:1316:32
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [blog]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1311 hooks.additionalAssets.callAsync.err
+    [blog]/[webpack]/lib/Compilation.js:1311:36
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [blog]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1307 hooks.optimizeTree.callAsync.err
+    [blog]/[webpack]/lib/Compilation.js:1307:32
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [blog]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1244 Compilation.seal
+    [blog]/[webpack]/lib/Compilation.js:1244:27
+  
+  - Compiler.js:624 hooks.make.callAsync.err
+    [blog]/[webpack]/lib/Compiler.js:624:17
+  
+  
+  - Compilation.js:1095 _addModuleChain
+    [blog]/[webpack]/lib/Compilation.js:1095:12
+  
+  - Compilation.js:1007 processModuleDependencies.err
+    [blog]/[webpack]/lib/Compilation.js:1007:9
+  
+  - next_tick.js:74 processTicksAndRejections
+    internal/process/next_tick.js:74:9
+  
+</pre><script type="text/javascript" src="/common/vendors.a82721d.js"></script><script type="text/javascript" src="/home/asaply/index.7fb2154.js"></script>

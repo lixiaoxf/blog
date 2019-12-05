@@ -115,15 +115,25 @@ module.exports = {
                     fallback: 'style-loader',
                     use: [
                         'css-loader', 
-                        'sass-loader',
-                    {
-                        loader:"postcss-loader",
-                        options: {
-                            plugins: [
-                                require("autoprefixer") 
-                            ]
+                        // 'sass-loader',
+                        {
+                            loader: "sass-loader",
+                            options: {
+                              includePaths: [
+                                
+                                    path.resolve(__dirname,'../static/')
+                                  
+                              ]
+                            }
+                        },
+                        {
+                            loader:"postcss-loader",
+                            options: {
+                                plugins: [
+                                    require("autoprefixer") 
+                                ]
+                            }
                         }
-                    }
                 ]
                 })
             },

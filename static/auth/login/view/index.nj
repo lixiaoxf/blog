@@ -6,6 +6,5 @@
     <body>
         {% include 'component/header/index.nj' %}
         {% include 'auth/login/content.nj' %}
-        {% include 'component/bottom/index.nj' %}
     </body>
 </html>

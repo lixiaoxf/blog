@@ -1,5 +1,6 @@
-@import '@/component/blogs/list/style/index.scss';
 
+@import 'common/style/rem';
+@import 'component/editor/style/siteText';
 .site-labels{
     box-sizing: border-box;
     a{
