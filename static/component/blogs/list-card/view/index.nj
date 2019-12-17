@@ -7,10 +7,6 @@
                 <a href='/edit/{{data._id}}'>修改</a>
              </div>
         {% endif %}
-        <div class='operate'>
-                <a blog-delete='{{data._id}}'>删除</a>
-                <a href='/edit/{{data._id}}'>修改</a>
-             </div>
         <a href='/detail/{{data._id}}' class='header'>{{data.title}}</a>
         <div class='time'>{{ data.createTime}}</div>
         <div class='site-text'>
