@@ -12,6 +12,11 @@
         label{
             width: 100%;
         }
+        #editor{
+            .w-e-text-container{
+                height:600px !important;
+            }
+        }
         .btn{
             margin-top: rem(15);
             font-size:rem(14);

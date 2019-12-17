@@ -1,8 +1,8 @@
 {% import 'component/blogs/list-card/index.nj' as tmp %}
-{% macro list(listData) %}
+{% macro list(listData,isLogin) %}
     <div class='blogs-list'>
         {% for item in listData %}
-            {{tmp.card(item)}}
+            {{tmp.card(item,isLogin)}}
         {% endfor %}
     </div>
 {% endmacro %}

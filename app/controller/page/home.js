@@ -10,9 +10,9 @@ class HomeController extends Controller {
       item.createTime = `${createData.getFullYear()}年${createData.getMonth()+1}月${createData.getDate()}日`;
     })
     // let tagsBlog = await this.ctx.model.Blog.find({labels:{'$all':['vue']}})
+    let { error, data } = await ctx.service.auth.checkToken();
     
-    
-    await this.ctx.render('home/index/index.nj',{list:blogs},{ expiresIn: 3600});
+    await this.ctx.render('home/index/index.nj',{list:blogs,isLogin:error == 0 ? true:false},{ expiresIn: 3600});
   }
   async addBlog() {
 

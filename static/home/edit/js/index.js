@@ -100,11 +100,10 @@ var edit = {
             }else{
                 api.createBlog(postData)
             }
-            
-            
         })
     }
 }
+
 function init(){
     edit.init();
     initData.init(edit.editor)

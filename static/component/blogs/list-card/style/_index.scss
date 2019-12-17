@@ -7,25 +7,45 @@
     padding-right:rem(30);
     border-bottom: 1px solid #dedede;
     margin-bottom: rem(20);
-    &:link {
+    position: relative;
+    a:link {
         text-decoration: none;
         color:#000;
     }
-    &:visited {
+    a:visited {
         text-decoration: none;
         color:#000;
     }
-    &:hover {
+    a:hover {
         text-decoration: none;
         color:#000;
     }
-    &:active {
+    a:active {
         text-decoration: none;
         color:#f74141;
     }
-    &:hover .header
+    a:hover
     {
         color:#f74141;
+    }
+    .operate{
+        position: absolute;
+        font-size:rem(12); 
+        width: rem(40);
+        left:rem(-40);
+        top:rem(30);
+        a {
+            display: block;
+            text-align: center;
+            padding: rem(4) rem(6);
+            background: #000;
+            color:#fff;
+            cursor: pointer;
+            margin-bottom: rem(4);
+            &:hover{
+                background: #f74141;
+            }
+        }
     }
     .header{
         font-size:rem(26);

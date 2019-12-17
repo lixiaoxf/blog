@@ -11,4 +11,5 @@ module.exports = app => {
   router.post('/v/api/createBlog',controller.api.blog.create)
   router.get('/v/api/getBlog/:id', controller.api.blog.index);
   router.post('/v/api/updateBlog/:id', controller.api.blog.update);
+  router.post('/v/api/deleteBlog/:id', controller.api.blog.delete);
 };

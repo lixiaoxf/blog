@@ -53,6 +53,21 @@ class ApiController extends Controller {
         data:blog
     }
   }
+  async delete() {
+    const { ctx } = this;
+    if(!ctx.params.id){
+        ctx.body = {
+            error:1,
+            data:'文章不存在'
+        }
+        return ;
+    }
+    let res = await this.ctx.model.Blog.deleteOne({ _id: ctx.params.id })
+    ctx.body = {
+        error:0,
+        data:res
+    }
+  }
 }
 
 module.exports = ApiController;

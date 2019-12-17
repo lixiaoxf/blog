@@ -4,5 +4,5 @@
     <a>react</a>
 </div>
 <div class='site-index''>
-    {{tmp.list(list)}}
+    {{tmp.list(list,isLogin)}}
 </div>
