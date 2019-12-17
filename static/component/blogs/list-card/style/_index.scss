@@ -28,12 +28,20 @@
     {
         color:#f74141;
     }
+    &:hover {
+        .operate{
+            opacity: 1;
+            z-index: 1;
+        }
+    }
     .operate{
         position: absolute;
         font-size:rem(12); 
         width: rem(40);
         left:rem(-40);
         top:rem(30);
+        opacity: 0;
+        transition: all .8s ease;
         a {
             display: block;
             text-align: center;

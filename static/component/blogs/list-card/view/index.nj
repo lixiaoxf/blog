@@ -3,7 +3,7 @@
     <div class="blog-list-card">
         {% if canOp %}
              <div class='operate'>
-                <a blog-delete='{{data._id}}'>删除</a>
+                {# <a blog-delete='{{data._id}}'>删除</a> #}
                 <a href='/edit/{{data._id}}'>修改</a>
              </div>
         {% endif %}
