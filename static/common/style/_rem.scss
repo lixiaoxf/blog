@@ -1,4 +1,4 @@
-$base : 14;
+$base : 16;
 @function rem($num){
     @return ($num/$base)+rem;
-}
+} 
