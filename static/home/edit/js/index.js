@@ -73,6 +73,7 @@ var initData = {
 var edit = {
     init(){
         this.editor = new Editor('#editor')
+        this.editor.customConfig.uploadImgShowBase64 = true
         this.editor.create();
         this.initEvt();
     },

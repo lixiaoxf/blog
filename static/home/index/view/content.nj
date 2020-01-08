@@ -3,6 +3,6 @@
     <a>vue</a>
     <a>react</a>
 </div>
-<div class='site-index''>
+<div class='site-index'>
     {{tmp.list(list,isLogin)}}
 </div>
